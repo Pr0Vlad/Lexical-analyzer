@@ -64,11 +64,11 @@ class Reading:
                     break
                 elif re.match('==|<=|>=|!=', key) and not in_block:
                     key = key[:2]
-                    token(key, 'OPERATION:', tokens)
+                    token(key, 'RELATION:', tokens)
                     self = self[len(key):]
                     self = self.strip()
-                    print('OPERATION: ' + key)
-                elif re.match('[*]|/|[+]|=|-|<|>|,|[(]|[)]|[{]|[}]', key) and not in_block:
+                    print('RELATION: ' + key)
+                elif re.match('[*]|/|[+]|=|-|<|>|,|[(]|[)]|[{]|[}]|\\]|\\[', key) and not in_block:
                     key = key[:1]
                     token(key, 'OPERATION:', tokens)
                     self = self[len(key):]
